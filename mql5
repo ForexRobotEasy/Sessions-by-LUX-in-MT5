@@ -1,0 +1,109 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                   Sessions.mq5 |
+//|                        Copyright 2022, Forex Robot Easy Team     |
+//|                                              forexroboteasy.com |
+//+------------------------------------------------------------------+
+#property copyright 'Copyright 2022, Forex Robot Easy Team'
+#property link      'forexroboteasy.com'
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                     Sessions by LUX in MT5                        |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//| Global Variables                                                  |
+//+------------------------------------------------------------------+
+int sessionStartTime[4]; // Array to store session start times
+int sessionEndTime[4];   // Array to store session end times
+bool sessionEnabled[4];  // Array to store session enable/disable flag
+int chartSessionRange[2]; // Array to store chart session range
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                     Function Definitions                          |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+// Function to enable/disable all elements associated with a specific user-set session
+void EnableDisableSession(int sessionIndex, bool enable)
+{
+    sessionEnabled[sessionIndex] = enable;
+    // Code to enable/disable session elements goes here
+}
+
+// Function to display the opening and closing times of the user-set session in the hh:mm format
+string FormatSessionTime(int sessionTime)
+{
+    int hours = sessionTime / 60;
+    int minutes = sessionTime % 60;
+    return StringFormat('%02d:%02d', hours, minutes);
+}
+
+// Function to highlight the associated session range on the chart
+void HighlightSessionRange()
+{
+    // Code to highlight session range on the chart goes here
+}
+
+// Function to calculate and display the associated session trend
+void CalculateDisplaySessionTrend()
+{
+    // Code to calculate and display session trend goes here
+}
+
+// Function to change session times
+void ChangeSessionTimes(int sessionIndex, int startTime, int endTime)
+{
+    sessionStartTime[sessionIndex] = startTime;
+    sessionEndTime[sessionIndex] = endTime;
+    // Code to update session times goes here
+}
+
+// Function to perform necessary calculations and outputs using closing price within active sessions
+void PerformCalculationsUsingClosingPrice()
+{
+    // Code to perform calculations and outputs using closing price within active sessions goes here
+}
+
+// Function to ensure precision and accuracy in all calculations and outputs
+void EnsurePrecisionAccuracy()
+{
+    // Code to ensure precision and accuracy in calculations and outputs goes here
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                     Main Program                                  |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+void OnStart()
+{
+    // Code to enable/disable all elements associated with a specific user-set session
+    EnableDisableSession(0, true); // Enable Session 1
+    EnableDisableSession(1, false); // Disable Session 2
+    EnableDisableSession(2, true); // Enable Session 3
+    EnableDisableSession(3, true); // Enable Session 4
+    
+    // Code to display the opening and closing times of the user-set session in the hh:mm format
+    Print('Session 1 Opening Time: ', FormatSessionTime(sessionStartTime[0]));
+    Print('Session 1 Closing Time: ', FormatSessionTime(sessionEndTime[0]));
+    
+    // Code to highlight the associated session range on the chart
+    HighlightSessionRange();
+    
+    // Code to calculate and display the associated session trend
+    CalculateDisplaySessionTrend();
+    
+    // Code to change session times
+    ChangeSessionTimes(0, 360, 720); // Change Session 1 start time to 06:00 and end time to 12:00
+    
+    // Code to perform necessary calculations and outputs using closing price within active sessions
+    PerformCalculationsUsingClosingPrice();
+    
+    // Code to ensure precision and accuracy in all calculations and outputs
+    EnsurePrecisionAccuracy();
+}
